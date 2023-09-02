@@ -1,0 +1,7 @@
+django
+django-allauth
+django-htmx
+django-sql-utils
+django-stubs[compatible-mypy]
+ipython
+python-dotenv

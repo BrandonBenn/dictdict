@@ -1,0 +1,5 @@
+<div id="post-list" class="max-w-3xl mx-auto px-5 mt-10">
+    {% for post in posts %}
+        {% include 'posts/_post.html' with post=post %}
+    {% endfor %}
+</div>

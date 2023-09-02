@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="lg:container mx-auto">
+        {% include "navbar.html" %}
+        {% if notice %}
+            <p id="notice"
+               class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block">{{ notice }}</p>
+        {% endif %}
+        {% include 'posts/_post_list.html' with posts=posts %}
+    </div>
+    </div>
+{% endblock %}

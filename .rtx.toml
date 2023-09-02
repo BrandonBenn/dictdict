@@ -1,0 +1,5 @@
+env_file = ".env"
+
+[tools]
+python = { version='3.11', virtualenv='.venv' }
+node = "lts"

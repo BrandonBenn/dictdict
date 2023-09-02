@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+
+
+ if ! command -v honcho > /dev/null 2>&1; then
+  pip install honcho
+fi
+
+honcho start

@@ -1,0 +1,10 @@
+#!/usr/bin/env sh
+
+if [ "$VIRTUAL_ENV" = "" ]; then
+  [ -d ./.venv/bin ] || python -m venv .venv
+
+  source "$PWD/.venv/bin/activate"
+fi
+
+pip install pip-tools
+pip install -r requirements.txt

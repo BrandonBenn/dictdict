@@ -1,0 +1,22 @@
+<form method="post" action="{% url 'posts' %}" class="content">
+    {% csrf_token %}
+    {% if form.errors %}
+        <div id="error_explanation"
+             class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
+            <h2>The following errors prohibited this post from being saved:</h2>
+            <ul>
+                {% for message in form.errors %}<li>{{ message }}</li>{% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+    <input type="hidden" name="post_id" value="{{ post.id }}">
+    <div class="my-5">{{ form.title }}</div>
+    <div class="my-5">{{ form.content }}</div>
+    <div class="inline py-3 px-5 bg-black text-white inline-block font-medium cursor-pointer">
+        <button type="submit"
+                id="submit"
+                class="px-4 py-2 bg-black text-white font-bold hover:bg-gray-800 focus:outline-none focus:ring focus:ring-gray-300 cursor-pointer">
+            Save
+        </button>
+    </div>
+</form>

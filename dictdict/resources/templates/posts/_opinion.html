@@ -1,0 +1,55 @@
+<article class="border text-card-foreground w-[550px] bg-white bg-gray-800 rounded-xl shadow-md overflow-hidden md:max-w-3xl m-3">
+  <div class="md:flex">
+    <div class="md:flex-shrink-0">
+      <span class="object-cover md:w-48 rounded-md w-[192px] h-[192px]"></span>
+    </div>
+    <div class="p-5 w-full">
+      <p class="mt-4 mb-10 text-gray-500 text-gray-300">
+        {{ opinion.content }}
+      </p>
+      <div class="flex mt-6 justify-between items-center">
+        <div class="flex space-x-2 text-gray-400 text-gray-300">
+          <div class="flex">
+            {% if user.is_authenticated %}
+              <button
+                hx-post="{% url 'opinion_like' opinion.id %}"
+                hx-target="#opinion-{{ opinion.id }}-count"
+                hx-swap="innerHTML"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-4 w-4 text-red-500"
+                  width="24" height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path>
+                </svg>
+              </button>
+            {% else %}
+              <a href="{% url 'account_login' %}">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-4 w-4 text-red-500"
+                  width="24" height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path>
+                </svg>
+              </a>
+            {% endif %}
+            <span id="opinion-{{ opinion.id }}-count" class="ml-1">
+              {{ opinion.voters.count }}
+            </span>
+          </div>
+          <div class="text-gray-400 text-gray-300">
+            {{ opinion.created_at }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>

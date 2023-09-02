@@ -1,0 +1,5 @@
+<div id="opinion-list" class="w-full mx-auto px-5 mt-10">
+    {% for opinion in opinions %}
+        {% include 'posts/_opinion.html' with opinion=opinion %}
+    {% endfor %}
+</div>
