@@ -4,3 +4,4 @@ db.sqlite3
 .venv 
 .env
 dictdict/resources/static/tailwind.css
+node_modules
